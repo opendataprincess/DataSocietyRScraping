@@ -1,4 +1,4 @@
-#Code from DataSociety Mining Social Media Course- slide 20
+#R Code from DataSociety Mining Social Media Course- slide 20
 
 #Install the twitteR package
 install.packages("twitteR")
