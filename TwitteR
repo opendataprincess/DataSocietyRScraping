@@ -5,10 +5,10 @@ install.packages("twitteR")
 library(twitteR)
 
 #Load authentication credentials
-api_key = "    "
-api_secret = "   "
-access_token = "   "
-access_secret = "   "
+api_key = "rPA7yZAP5902lpj1K4Jd2342N"
+api_secret = "HhKcMrY0TxLTtkNsie2bmMvtKZTl7wYAMVe56E1EI5FsQMTVeo"
+access_token = "2595103580-8IHq7yT46Y46rGzaTJktJZAMeqygOqhds6XhDmo"
+access_secret = "2VzWodJkyzL7Jthhs7Z7SG6bsOEiDofm436WO6Q5eVY1A"
 
 #Ask Twitter for authentication
 setup_twitter_oauth(api_key, api_secret, access_token, access_secret)
