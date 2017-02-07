@@ -1,0 +1,28 @@
+#Code that uses Shiny to make Word Cloud using Twitter search term
+
+install.packages("shiny")
+
+#Library that does natural language processing
+library(tm)
+
+#Library that makes word cloud
+library(wordcloud)
+
+midnight <-searchTwitter("#Rio2016", n=1000)
+> midnight_text = sapply(midnight, function(x) x$getText())
+> midnight_corpus = Corpus(VectorSource(midnight_text))
+> midnight_corpus <- tm_map(midnight_corpus, content_transformer(tolower))
+Error in FUN(content(x), ...) : 
+  invalid input 'RT @rio2016_es: Â¿CuÃ¡ndo y a quÃ© hora competirÃ¡ @usainbolt en #Rio2016?
+AquÃ­ su calendario í ½í±‰  https://t.co/OWDD1yMuHh 
+#Atletismo https://t.â€¦' in 'utf8towcs'
+> midnight_corpus <- tm_map(midnight_corpus, removePunctuation)
+> midnight_corpus <- tm_map(midnight_corpus, function(x)removeWords(x,stopwords()))
+>  
+> tdm <- TermDocumentMatrix(midnight_corpus)
+> m <- as.matrix(tdm)
+> word_freqs = sort(rowSums(m), decreasing = TRUE) 
+>  
+> # create a data frame with words and their frequencies
+> dm = data.frame(word = names(word_freqs), freq = word_freqs)
+> wordcloud(dm$word, dm$freq, random.order = FALSE, colors = brewer.pal(8, "Dark2"))
