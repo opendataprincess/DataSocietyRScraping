@@ -1,12 +1,21 @@
 #Code that uses Shiny to make Word Cloud using Twitter search term
 
+install.packages("twitteR")
 install.packages("shiny")
+install.packages("tm")
 
-#Library that does natural language processing
+#Library that does natural language processing is 'tm'
 library(tm)
+library(twitteR)
 
 #Library that makes word cloud
 library(wordcloud)
+
+api_key = ""
+api_secret = ""
+access_token = ""
+access_secret = ""
+setup_twitter_oauth(api_key, api_secret, access_token, access_secret)
 
 midnight <-searchTwitter("#Rio2016", n=1000)
 > midnight_text = sapply(midnight, function(x) x$getText())
