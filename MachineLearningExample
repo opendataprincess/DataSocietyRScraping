@@ -1,0 +1,17 @@
+http://www.datasciencecentral.com/profiles/blogs/how-to-use-data-analysis-for-machine-learning-example-part-1
+
+install.packages("ggplot2")
+>select CRAN mirror
+
+data(Boston, package="MASS")
+library(ggplot2)
+ggplot(data = Boston, aes(x = medv)) + geom_histogram()
+
+#view the data
+head(Boston)
+
+#reshape the data
+require(ggplot2)
+require(reshape2)
+melt.boston <- melt(Boston)
+head(melt.boston)
