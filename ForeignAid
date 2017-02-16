@@ -22,3 +22,11 @@ USAID_Disbursements2014_2016_WBGDP_pred <- knn(train = USAID_Disbursements2014_2
 USAID_Disbursements2014_2016_WBGDP.test, cl = USAID_Disbursements2014_2016_WBGDP.trainLabels, k=3)
 
 __> Received Error message of 'no missing values are allowed'
+
+USAID_Disbursements2014_2016_WBGDP_pred
+
+#Model evaluation
+
+install.packages("gmodels")
+library(gmodels)
+CrossTable(x = USAID_Disbursements2014_2016_WBGDP.testLabels, y=USAID_Disbursements2014_2016_WBGDP_pred, prop.chisq=FALSE)
