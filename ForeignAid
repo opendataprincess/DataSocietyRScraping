@@ -1,0 +1,6 @@
+#RStudio code 2-16-17
+library(readxl)
+
+USAID_Disbursements2014_2016_WBGDP <- read_excel("~/526-AppliedMachineLearning/USAID-Disbursements2014-2016_WBGDP.xlsx")
+
+View(USAID_Disbursements2014_2016_WBGDP)
