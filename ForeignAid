@@ -4,3 +4,21 @@ library(readxl)
 USAID_Disbursements2014_2016_WBGDP <- read_excel("~/526-AppliedMachineLearning/USAID-Disbursements2014-2016_WBGDP.xlsx")
 
 View(USAID_Disbursements2014_2016_WBGDP)
+
+install.packages("class")
+install.pacakges("ggvis")
+library(class)
+library(ggvis)
+set.seed(1234)
+
+#Set training and test data and give each dataset a label
+USAID_Disbursements2014_2016_WBGDP.training <- USAID_Disbursements2014_2016_WBGDP[ind==1, 1:4]
+USAID_Disbursements2014_2016_WBGDP.test <- USAID_Disbursements2014_2016_WBGDP[ind==2, 1:4]
+USAID_Disbursements2014_2016_WBGDP.trainLabels <-USAID_Disbursements2014_2016_WBGDP[ind==1, 5]
+USAID_Disbursements2014_2016_WBGDP.testLabels <- USAID_Disbursements2014_2016_WBGDP[ind==2, 5]
+
+#KNN Machine Learning Model
+USAID_Disbursements2014_2016_WBGDP_pred <- knn(train = USAID_Disbursements2014_2016_WBGDP.training, test = 
+USAID_Disbursements2014_2016_WBGDP.test, cl = USAID_Disbursements2014_2016_WBGDP.trainLabels, k=3)
+
+__> Received Error message of 'no missing values are allowed'
